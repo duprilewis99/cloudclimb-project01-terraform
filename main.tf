@@ -234,7 +234,8 @@ resource "aws_security_group" "ssh" {
 
 resource "aws_key_pair" "cloudclimb" {
   key_name   = "cloudclimb-project01-key"
-  public_key = file(pathexpand("~/.ssh/cloudclimb-project01.pub"))
+  public_key = var.public_key
+  #public_key = file(pathexpand("~/.ssh/cloudclimb-project01.pub"))
 
   tags = {
     Name        = "cloudclimb-project01-key"
@@ -368,4 +369,10 @@ resource "aws_db_instance" "postgres" {
     Project     = "CloudClimb-Project01"
     Environment = "Dev"
   }
+}
+
+
+variable "public_key" {
+  description = "SSH public key for the EC2 key pair"
+  type        = string
 }
