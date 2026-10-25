@@ -1,4 +1,11 @@
 terraform {
+  backend "s3" {
+    bucket       = "cloudclimb-project01-tfstate-511126655924-us-east-2-an"
+    key          = "cloudclimb-project01/terraform.tfstate"
+    region       = "us-east-2"
+    encrypt      = true
+    use_lockfile = true
+  }
   required_providers {
     aws = {
       source = "hashicorp/aws"
