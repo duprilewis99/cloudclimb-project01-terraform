@@ -1,0 +1,2 @@
+# Copy this file to terraform.tfvars and replace the placeholder.
+public_key = "REPLACE_WITH_YOUR_SSH_PUBLIC_KEY"
